@@ -17,7 +17,7 @@ introh2.addEventListener("mouseenter", function(event){
 const midImg = document.querySelector('.img-content img');
 console.log(midImg);
 
-midImg.addEventListener('dblclick', function(event) {
+midImg.addEventListener('dblclick', function() {
   midImg.style.opacity = "0.5";
   midImg.style.border = "10px dotted black";
   setTimeout(function() {
@@ -50,7 +50,7 @@ document.addEventListener('wheel', function(event) {
   });
   let scale = 1;
 
-  //Focus
+//Focus
   const contentPick = document.querySelector('.content-pick .destination');
   console.log(contentPick);
 
@@ -58,7 +58,7 @@ document.addEventListener('wheel', function(event) {
     contentPick.style.background = 'pink';
   });
 
-  //Resize
+//Resize
   const purple = document.querySelector('.content-destination');
   console.log(purple);
 
@@ -68,10 +68,28 @@ document.addEventListener('wheel', function(event) {
         purple.style.background = '';
       }, 1500);
     });
-//Select
-const footerP = document.querySelector('footer p');
 
-footerP.addEventListener('select', function(){
-    footerP.style.background = 'orange';
+//Select
+const footerP = document.querySelector('.footer p');
+console.log(footerP);
+
+footerP.addEventListener('select', function() {
+    bottomImg.style.background = 'pink'
+  setTimeout(function() {
+    bottomImg.style.background = "";
+  }, 750);
 });
+
+//Click
+const bottomImg = document.querySelector('.content-destination img');
+console.log(bottomImg);
+
+bottomImg.addEventListener('click', function() {
+    bottomImg.style.opacity = "0%";
+  setTimeout(function() {
+    bottomImg.style.opacity = "";
+  }, 1500);
+});
+
+
   
