@@ -1,10 +1,10 @@
 import './less/index.less'
 
-// Your code goes here!
+// Your code goes here
 
-//Mouseover
+// 1 Mouseover
 const introh2 = document.querySelector('.intro h2');
-console.log(introh2);
+// console.log(introh2);
 
 introh2.addEventListener("mouseenter", function(event){
     event.target.style.color = 'yellow';
@@ -13,9 +13,9 @@ introh2.addEventListener("mouseenter", function(event){
       }, 500);
     }, false);
 
-//Double Click
+// 2 Double Click
 const midImg = document.querySelector('.img-content img');
-console.log(midImg);
+// console.log(midImg);
 
 midImg.addEventListener('dblclick', function() {
   midImg.style.opacity = "0.5";
@@ -26,17 +26,19 @@ midImg.addEventListener('dblclick', function() {
   }, 500);
 });
 
-//Keydown
+// 3 Keydown
 const introp = document.querySelector('.intro p');
+introp.setAttribute("tabindex", 0);
 
-introp.addEventListener('keydown', function(event) {
-    introp.textContent += ` ${event.code}`;
+
+introp.addEventListener('keydown', function() {
+    introp.textContent += ` whoops`;
 });
 
-//Wheel
+// 4 Wheel
 const midText = document.querySelector('.inverse-content .text-content p');
 
-console.log(midText)
+// console.log(midText)
 
 document.addEventListener('wheel', function(event) {
     if (event.deltaY < 0) {
@@ -50,17 +52,21 @@ document.addEventListener('wheel', function(event) {
   });
   let scale = 1;
 
-//Focus
+// 5 Focus (can only get to work on click)
   const contentPick = document.querySelector('.content-pick .destination');
-  console.log(contentPick);
+//   console.log(contentPick);
+  contentPick.setAttribute("tabindex", 0);
 
   contentPick.addEventListener('focus', function(){
-    contentPick.style.background = 'pink';
+        contentPick.style.background = 'pink';
+        setTimeout(function() {
+            contentPick.style.background = "";
+          }, 500);
   });
 
-//Resize
+// 6 Resize
   const purple = document.querySelector('.content-destination');
-  console.log(purple);
+//   console.log(purple);
 
   window.addEventListener('resize', function(){
     purple.style.background = 'purple';
@@ -69,20 +75,18 @@ document.addEventListener('wheel', function(event) {
       }, 1500);
     });
 
-//Select
-const footerP = document.querySelector('.footer p');
-console.log(footerP);
-
-footerP.addEventListener('select', function() {
-    bottomImg.style.background = 'pink'
-  setTimeout(function() {
-    bottomImg.style.background = "";
-  }, 750);
+// 7 Prevent Default
+const buttons = document.querySelectorAll('.btn');
+console.log(buttons);
+buttons.forEach(button => {
+    button.addEventListener('click', function(event){
+        event.preventDefualt()
+    })
 });
 
-//Click
+// 8 Click
 const bottomImg = document.querySelector('.content-destination img');
-console.log(bottomImg);
+// console.log(bottomImg);
 
 bottomImg.addEventListener('click', function() {
     bottomImg.style.opacity = "0%";
@@ -91,5 +95,15 @@ bottomImg.addEventListener('click', function() {
   }, 1500);
 });
 
+// 9 DomContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Careful! Things get a little weird around here');
+});
 
-  
+// 10 Mouse Leave
+const nav = document.querySelector('nav');
+// console.log(nav);
+
+nav.addEventListener('mouseleave', function(){
+    nav.replaceWith('Oops! Lost your chance.')
+});
